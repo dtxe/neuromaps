@@ -129,6 +129,9 @@ def load_nifti(img):
     img : nib.Nifti1Image
         Loaded NIFTI image
     """
+    if isinstance(img, nib.Nifti1Image):
+        return img
+
     try:
         img = nib.load(img)
     except (TypeError) as err:
